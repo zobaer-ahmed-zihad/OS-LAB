@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+void leftMostDerivation(string st)
+{
+    cout << st << endl;
+    for (int i = 0; i < st.size(); i++)
+    {
+        if (st[i] == 'A')
+        {
+            st[i] = 'b';
+            cout << st << endl;
+        }
+        else if (st[i] == 'B')
+        {
+            st[i] = 'c';
+            cout << st << endl;
+        }
+    }
+}
+void rightMostDerivation(string st)
+{
+    cout << st << endl;
+    for (int i = st.size(); i > 0; i--)
+    {
+        if (st[i] == 'A')
+        {
+            st[i] = 'b';
+            cout << st << endl;
+        }
+        else if (st[i] == 'B')
+        {
+            st[i] = 'c';
+            cout << st << endl;
+        }
+    }
+}
+int main()
+{
+    string st;
+    cin >> st;
+
+    cout<<"Left Most Derivation "<<endl;
+    leftMostDerivation(st);
+    cout<<endl<<"Right most Derivation"<<endl;
+    rightMostDerivation(st);
+
+    return 0;
+}
