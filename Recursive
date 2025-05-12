@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string input;
+int pos = 0;
+
+// Forward declaration
+bool B();
+
+bool S() {
+    // S → aB
+    if (pos < input.length() && input[pos] == 'a') {
+        pos++;
+        return B(); // Call B rule
+    }
+    return false;
+}
+
+bool B() {
+    // B → b | bB
+    if (pos < input.length() && input[pos] == 'b') {
+        pos++;
+        if (pos == input.length()) {
+            // Base case: only one 'b' and we're at the end
+            return true;
+        } else {
+            // Recursive case: more 'b's
+            return B();
+        }
+    }
+    return false;
+}
+
+int main() {
+    input = "abbb"; // You can test with other strings here
+
+    if (S() && pos == input.length()) {
+        cout << "Accepted\n";
+    } else {
+        cout << "Rejected\n";
+    }
+
+    return 0;
+}
